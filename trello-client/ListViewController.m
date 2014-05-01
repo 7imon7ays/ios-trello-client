@@ -21,13 +21,6 @@
 
 @implementation ListViewController
 
-- (ListViewController *) initWithCards:(NSMutableArray *)cards {
-    self = [super init];
-    if (self) {
-        _cards = cards;
-    }
-    return self;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,12 +36,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
     self.cardListTable.delegate = self;
     self.cardListTable.dataSource = self;
     [self.cardListTable registerNib:[UINib nibWithNibName:@"CardCell" bundle:nil]
              forCellReuseIdentifier:@"cardCell"];
-    [self.cardListTable reloadData];
+
+    void (^parseSuccessCallback)(NSArray*, NSError*) = ^void(NSArray *objects, NSError *error) {
+        NSMutableArray *cardsArray = [[NSMutableArray alloc] init];
+        if (!error) {
+            [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                Card *card = [[Card alloc] initWithTitle:obj[@"title"] body:obj[@"body"]];
+                [cardsArray addObject:card];
+            }];
+        } else {
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        _cards = [[NSArray alloc] initWithArray:cardsArray];
+        [self.cardListTable reloadData];
+    };
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Card"];
+    [query findObjectsInBackgroundWithBlock:parseSuccessCallback];
 }
 
 - (void)didReceiveMemoryWarning

@@ -10,8 +10,6 @@
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (readonly) NSMutableArray *cards;
-
-- (ListViewController *) initWithCards:(NSMutableArray *)cards;
+@property (readonly) NSArray *cards;
 
 @end

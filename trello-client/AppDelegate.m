@@ -23,25 +23,10 @@
                   clientKey:PARSE_CLIENT_KEY];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    NSMutableArray *cards = [[NSMutableArray alloc] init];
-    void (^parseSuccessCallback)(NSArray*, NSError*) = ^void(NSArray *objects, NSError *error) {
-        if (!error) {
-            [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                Card *card = [[Card alloc] initWithTitle:obj[@"title"] body:obj[@"body"]];
-                [cards addObject:card];
-                ListViewController *listVC = [[ListViewController alloc] initWithCards:cards];
-                UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:listVC];
-                self.window.rootViewController = navController;
+    ListViewController *listViewController = [[ListViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: listViewController];
 
-            }];
-        } else {
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    };
-
-    PFQuery *query = [PFQuery queryWithClassName:@"Card"];
-    [query findObjectsInBackgroundWithBlock:parseSuccessCallback];
-    
+    self.window.rootViewController = navController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
