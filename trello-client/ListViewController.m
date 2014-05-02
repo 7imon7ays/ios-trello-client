@@ -8,9 +8,10 @@
 
 #import "ListViewController.h"
 #import "Parse/Parse.h"
+#import "Card.h"
 #import "CardCell.h"
 #import "CardViewController.h"
-#import "Card.h"
+#import "NewCardViewController.h"
 
 @interface ListViewController ()
 
@@ -87,6 +88,7 @@
 }
 
 - (IBAction)tapNewCard:(id)sender {
-    NSLog(@"Can't touch this!");
+    NewCardViewController *newCardVC = [[NewCardViewController alloc] init];
+    [self.navigationController pushViewController:newCardVC animated:YES];
 }
 @end

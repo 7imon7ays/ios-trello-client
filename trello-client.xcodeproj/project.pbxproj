@@ -27,6 +27,8 @@
 		9C566324190E0BC800805FA8 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C566322190E0BC800805FA8 /* CardViewController.m */; };
 		9C566325190E0BC800805FA8 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C566323190E0BC800805FA8 /* CardViewController.xib */; };
 		9C566328190E0F0900805FA8 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C566327190E0F0900805FA8 /* Card.m */; };
+		9C659A12191303CC00BCBC24 /* NewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C659A10191303CC00BCBC24 /* NewCardViewController.m */; };
+		9C659A13191303CC00BCBC24 /* NewCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C659A11191303CC00BCBC24 /* NewCardViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		9C566323190E0BC800805FA8 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
 		9C566326190E0F0900805FA8 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
 		9C566327190E0F0900805FA8 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		9C659A0F191303CC00BCBC24 /* NewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCardViewController.h; sourceTree = "<group>"; };
+		9C659A10191303CC00BCBC24 /* NewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCardViewController.m; sourceTree = "<group>"; };
+		9C659A11191303CC00BCBC24 /* NewCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCardViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +187,9 @@
 				9C566321190E0BC800805FA8 /* CardViewController.h */,
 				9C566322190E0BC800805FA8 /* CardViewController.m */,
 				9C566323190E0BC800805FA8 /* CardViewController.xib */,
+				9C659A0F191303CC00BCBC24 /* NewCardViewController.h */,
+				9C659A10191303CC00BCBC24 /* NewCardViewController.m */,
+				9C659A11191303CC00BCBC24 /* NewCardViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -283,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C5662F1190E061F00805FA8 /* InfoPlist.strings in Resources */,
+				9C659A13191303CC00BCBC24 /* NewCardViewController.xib in Resources */,
 				9C5662F9190E061F00805FA8 /* Images.xcassets in Resources */,
 				9C566319190E065A00805FA8 /* ListViewController.xib in Resources */,
 				9C566325190E0BC800805FA8 /* CardViewController.xib in Resources */,
@@ -339,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C566324190E0BC800805FA8 /* CardViewController.m in Sources */,
+				9C659A12191303CC00BCBC24 /* NewCardViewController.m in Sources */,
 				9C5662F7190E061F00805FA8 /* AppDelegate.m in Sources */,
 				9C5662F3190E061F00805FA8 /* main.m in Sources */,
 				9C566318190E065A00805FA8 /* ListViewController.m in Sources */,
