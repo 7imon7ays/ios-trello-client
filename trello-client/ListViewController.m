@@ -87,10 +87,14 @@
         CardViewController *cardViewController = [[CardViewController alloc] initWithCard:card];
         [self.navigationController pushViewController:cardViewController animated:YES];
     } else {
-        NewCardViewController *newCardVC = [[NewCardViewController alloc] init];
-        newCardVC.delegate = self;
-        [self.navigationController pushViewController:newCardVC animated:YES];
+        [self navigateToNewCardVC];
     }
+}
+
+- (void) navigateToNewCardVC {
+    NewCardViewController *newCardVC = [[NewCardViewController alloc] init];
+    newCardVC.delegate = self;
+    [self.navigationController pushViewController:newCardVC animated:YES];
 }
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
