@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E0806BAF8E746D0A41FBE10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 747F81B3D6E445659BB66F4F /* libPods.a */; };
+		9C3D1214191C663E00DB517B /* NewCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D1212191C663E00DB517B /* NewCardCell.m */; };
+		9C3D1215191C663E00DB517B /* NewCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3D1213191C663E00DB517B /* NewCardCell.xib */; };
 		9C5662E7190E061F00805FA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5662E6190E061F00805FA8 /* Foundation.framework */; };
 		9C5662E9190E061F00805FA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5662E8190E061F00805FA8 /* CoreGraphics.framework */; };
 		9C5662EB190E061F00805FA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5662EA190E061F00805FA8 /* UIKit.framework */; };
@@ -26,7 +28,6 @@
 		9C56631F190E072900805FA8 /* CardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C56631D190E072900805FA8 /* CardCell.xib */; };
 		9C566324190E0BC800805FA8 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C566322190E0BC800805FA8 /* CardViewController.m */; };
 		9C566325190E0BC800805FA8 /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C566323190E0BC800805FA8 /* CardViewController.xib */; };
-		9C566328190E0F0900805FA8 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C566327190E0F0900805FA8 /* Card.m */; };
 		9C659A12191303CC00BCBC24 /* NewCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C659A10191303CC00BCBC24 /* NewCardViewController.m */; };
 		9C659A13191303CC00BCBC24 /* NewCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C659A11191303CC00BCBC24 /* NewCardViewController.xib */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,9 @@
 /* Begin PBXFileReference section */
 		652C4C812B5340109E159493 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		747F81B3D6E445659BB66F4F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C3D1211191C663E00DB517B /* NewCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCardCell.h; sourceTree = "<group>"; };
+		9C3D1212191C663E00DB517B /* NewCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCardCell.m; sourceTree = "<group>"; };
+		9C3D1213191C663E00DB517B /* NewCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCardCell.xib; sourceTree = "<group>"; };
 		9C541427190E3B5800BDD4AB /* Environment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
 		9C5662E3190E061F00805FA8 /* trello-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "trello-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C5662E6190E061F00805FA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -70,8 +74,6 @@
 		9C566321190E0BC800805FA8 /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
 		9C566322190E0BC800805FA8 /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 		9C566323190E0BC800805FA8 /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
-		9C566326190E0F0900805FA8 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		9C566327190E0F0900805FA8 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		9C659A0F191303CC00BCBC24 /* NewCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCardViewController.h; sourceTree = "<group>"; };
 		9C659A10191303CC00BCBC24 /* NewCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCardViewController.m; sourceTree = "<group>"; };
 		9C659A11191303CC00BCBC24 /* NewCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCardViewController.xib; sourceTree = "<group>"; };
@@ -144,7 +146,6 @@
 				9C5662ED190E061F00805FA8 /* Supporting Files */,
 				9C56631A190E066800805FA8 /* View Controllers */,
 				9C566320190E073200805FA8 /* Views */,
-				9C566329190E0F0F00805FA8 /* Models */,
 			);
 			path = "trello-client";
 			sourceTree = "<group>";
@@ -200,17 +201,11 @@
 				9C56631B190E072900805FA8 /* CardCell.h */,
 				9C56631C190E072900805FA8 /* CardCell.m */,
 				9C56631D190E072900805FA8 /* CardCell.xib */,
+				9C3D1211191C663E00DB517B /* NewCardCell.h */,
+				9C3D1212191C663E00DB517B /* NewCardCell.m */,
+				9C3D1213191C663E00DB517B /* NewCardCell.xib */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		9C566329190E0F0F00805FA8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9C566326190E0F0900805FA8 /* Card.h */,
-				9C566327190E0F0900805FA8 /* Card.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +290,7 @@
 				9C5662F9190E061F00805FA8 /* Images.xcassets in Resources */,
 				9C566319190E065A00805FA8 /* ListViewController.xib in Resources */,
 				9C566325190E0BC800805FA8 /* CardViewController.xib in Resources */,
+				9C3D1215191C663E00DB517B /* NewCardCell.xib in Resources */,
 				9C56631F190E072900805FA8 /* CardCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,12 +344,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C566324190E0BC800805FA8 /* CardViewController.m in Sources */,
+				9C3D1214191C663E00DB517B /* NewCardCell.m in Sources */,
 				9C659A12191303CC00BCBC24 /* NewCardViewController.m in Sources */,
 				9C5662F7190E061F00805FA8 /* AppDelegate.m in Sources */,
 				9C5662F3190E061F00805FA8 /* main.m in Sources */,
 				9C566318190E065A00805FA8 /* ListViewController.m in Sources */,
 				9C56631E190E072900805FA8 /* CardCell.m in Sources */,
-				9C566328190E0F0900805FA8 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

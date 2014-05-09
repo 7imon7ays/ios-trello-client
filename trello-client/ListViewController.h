@@ -10,6 +10,4 @@
 
 @interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (readonly) NSArray *cards;
-
 @end

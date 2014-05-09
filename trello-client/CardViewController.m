@@ -6,11 +6,14 @@
 //  Copyright (c) 2014 Simon Chaffetz. All rights reserved.
 //
 
+#import "Parse/Parse.h"
 #import "CardViewController.h"
-#import "Card.h"
+
+@class PFObject;
+@class CardViewController;
 
 @interface CardViewController () {
-    Card *card;
+    PFObject *card;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -19,8 +22,7 @@
 @end
 
 @implementation CardViewController
-
-- (CardViewController *) initWithCard:(Card *)passedCard {
+- (CardViewController *) initWithCard:(PFObject *)passedCard {
     self = [super init];
     if (self) {
         self->card = passedCard;
@@ -41,8 +43,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.titleLabel.text = card.title;
-    self.bodyLabel.text = card.body;
+    self.titleLabel.text = card[@"title"];
+    self.bodyLabel.text = card[@"body"];
 }
 
 - (void)didReceiveMemoryWarning

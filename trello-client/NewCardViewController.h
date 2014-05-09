@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class PFObject;
+
+@protocol AddCardDelegate <NSObject>
+
+- (void) addCard:(PFObject *)newcard;
+
+@end
+
 @interface NewCardViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, assign) id delegate;
 
 @end

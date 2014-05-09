@@ -8,7 +8,6 @@
 
 #import "NewCardViewController.h"
 #import "Parse/Parse.h"
-#import "Card.h"
 
 @interface NewCardViewController ()
 
@@ -20,6 +19,8 @@
 @end
 
 @implementation NewCardViewController
+
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,9 +58,10 @@
     PFObject *card = [PFObject objectWithClassName:@"Card"];
     [card setObject:title forKey:@"title"];
     [card setObject:body forKey:@"body"];
-
-    [card saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }];
+    // TODO: check if delegate responds to addCard selector
+    if ([delegate respondsToSelector:@selector(addCard:)]) {
+        [delegate addCard:card];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

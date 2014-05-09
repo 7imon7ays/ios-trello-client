@@ -7,21 +7,21 @@
 //
 
 #import "ListViewController.h"
-#import "Parse/Parse.h"
-#import "Card.h"
+#import <Parse/Parse.h>
 #import "CardCell.h"
 #import "CardViewController.h"
 #import "NewCardViewController.h"
+#import "NewCardCell.h"
 
 @interface ListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *cardListTable;
-- (IBAction)tapNewCard:(id)sender;
+
+@property (strong, nonatomic) NSMutableArray *cards;
 
 @end
 
 @implementation ListViewController
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,7 @@
     if (self) {
         // Custom initialization
         self.title = @"My Cards";
+        self.cards = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -43,16 +44,13 @@
              forCellReuseIdentifier:@"cardCell"];
 
     void (^parseSuccessCallback)(NSArray*, NSError*) = ^void(NSArray *objects, NSError *error) {
-        NSMutableArray *cardsArray = [[NSMutableArray alloc] init];
         if (!error) {
             [objects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                Card *card = [[Card alloc] initWithTitle:obj[@"title"] body:obj[@"body"]];
-                [cardsArray addObject:card];
+                [self.cards addObject:obj];
             }];
         } else {
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
-        _cards = [[NSArray alloc] initWithArray:cardsArray];
         [self.cardListTable reloadData];
     };
     
@@ -67,28 +65,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.cards.count;
+    return self.cards.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CardCell *cardCell = [self.cardListTable dequeueReusableCellWithIdentifier:@"cardCell"];
-    Card *card = self.cards[indexPath.row];
-    cardCell.titleLabel.text = card.title;
-    return cardCell;
+    if (indexPath.row < self.cards.count) {
+        CardCell *cardCell = [self.cardListTable dequeueReusableCellWithIdentifier:@"cardCell"];
+        PFObject *card = self.cards[indexPath.row];
+        cardCell.titleLabel.text = card[@"title"];
+        return cardCell;
+    } else {
+        NewCardCell *newCardCell = [[NewCardCell alloc] init];
+        newCardCell.promptLabel.text = @"New Card";
+        return newCardCell;
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Card *card = self.cards[indexPath.row];
-    CardViewController *cardViewController = [[CardViewController alloc] initWithCard:card];
-    [self.navigationController pushViewController:cardViewController animated:YES];
+    if (indexPath.row < self.cards.count) {
+        PFObject *card = self.cards[indexPath.row];
+        CardViewController *cardViewController = [[CardViewController alloc] initWithCard:card];
+        [self.navigationController pushViewController:cardViewController animated:YES];
+    } else {
+        NewCardViewController *newCardVC = [[NewCardViewController alloc] init];
+        newCardVC.delegate = self;
+        [self.navigationController pushViewController:newCardVC animated:YES];
+    }
 }
 
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (IBAction)tapNewCard:(id)sender {
-    NewCardViewController *newCardVC = [[NewCardViewController alloc] init];
-    [self.navigationController pushViewController:newCardVC animated:YES];
+- (void) addCard:(PFObject*)card {
+    [card saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self.cards addObject:card];
+        [self.cardListTable reloadData];
+    }];
 }
+
 @end

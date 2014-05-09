@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Card.h"
+
+@class PFObject;
 
 @interface CardViewController : UIViewController
 
-- (CardViewController *)initWithCard:(Card *)passedCard;
+- (CardViewController *)initWithCard:(PFObject *)passedCard;
 
 @end

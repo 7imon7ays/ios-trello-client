@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Card.h"
 #import "ListViewController.h"
 #import "Parse/Parse.h"
 #import "Environment.h"
